@@ -36,22 +36,21 @@ const StarBackground = ({ speed = 0.5, density = 200 }) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       starsRef.current.forEach(star => {
-        // Move stars
         star.y += star.speed;
         
-        // Reset star position when it goes off screen
+        // Redefinir a posição da estrela quando ela sair da tela
         if (star.y > canvas.height) {
           star.y = 0;
           star.x = Math.random() * canvas.width;
         }
         
-        // Twinkle effect
+        // Animação de brilho (twinkle)
         star.opacity += star.twinkle;
         if (star.opacity > 1 || star.opacity < 0.2) {
           star.twinkle = -star.twinkle;
         }
         
-        // Draw star with dark side colors
+        // Desenhar estrela com cores do lado sombrio
         ctx.save();
         ctx.globalAlpha = star.opacity;
         ctx.fillStyle = star.color;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardContent } from './ui/card';
-import { Badge } from './ui/badge';
 import { User, Target, Lightbulb, Skull } from 'lucide-react';
 import { developerInfo, timeline } from '../data/mock';
 
@@ -8,17 +7,23 @@ const About = () => {
   return (
     <section id="about" className="relative py-20 px-6">
       <div className="max-w-6xl mx-auto">
+
+        {/* Overlay Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-red-950/60 to-black/45" />
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 mb-4">
             A Ascensão ao Poder
           </h2>
+
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            A jornada de um desenvolvedor que abraçou o lado sombrio da programação
+            A jornada de um desenvolvedor que abraçou o lado Fullstack da programação
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
+
           {/* About Description */}
           <div className="space-y-6">
             <Card className="bg-slate-900/70 border-red-500/30 backdrop-blur-sm shadow-lg shadow-red-500/10">
@@ -66,11 +71,13 @@ const About = () => {
             </h3>
             
             <div className="relative">
+
               {/* Dark Timeline Line */}
               <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-red-500 via-orange-500 to-red-600"></div>
               
               {timeline.map((item, index) => (
                 <div key={index} className="relative flex items-start mb-8">
+
                   {/* Timeline Node */}
                   <div className="relative z-10 w-16 h-16 bg-slate-900 border-2 border-red-500 rounded-full flex items-center justify-center mr-6 shadow-lg shadow-red-500/20">
                     <span className="text-red-400 font-bold text-sm">{item.year}</span>
@@ -96,9 +103,7 @@ const About = () => {
         </div>
       </div>
       
-      {/* Dark Side ambient effects */}
-      <div className="absolute top-1/4 left-10 w-32 h-32 bg-red-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-10 w-40 h-40 bg-orange-500/5 rounded-full blur-3xl"></div>
+
     </section>
   );
 };

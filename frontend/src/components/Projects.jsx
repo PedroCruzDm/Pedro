@@ -7,7 +7,7 @@ import { projects } from '../data/mock';
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const categories = ['All', 'Frontend', 'Backend', 'Algorithm'];
+  const categories = ['All', 'Frontend', 'Backend'];
 
   const filteredProjects = selectedCategory === 'All' 
     ? projects 
@@ -25,10 +25,14 @@ const Projects = () => {
 
   return (
     <section id="projects" className="relative py-20 px-6">
+
+      {/* Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-red-950/60 to-black/50" />
+
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-600 mb-4">
             Missões Concluídas
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
@@ -44,8 +48,8 @@ const Projects = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/25'
-                    : 'border-blue-400/30 text-blue-400 hover:bg-blue-400/10 hover:border-blue-400/50'
+                    ? 'bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-500/25'
+                    : 'border-red-400/30 text-red-400 hover:bg-red-400/10 hover:border-red-400/50'
                 }`}
               >
                 {category}
@@ -57,9 +61,10 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
+
             <Card 
               key={project.id} 
-              className="bg-slate-800/50 border-blue-500/20 backdrop-blur-sm hover:border-blue-400/40 transition-all duration-300 hover:scale-[1.02] group overflow-hidden"
+              className="bg-slate-800/50 border-red-500/20 backdrop-blur-sm hover:border-red-400/40 transition-all duration-300 hover:scale-[1.02] group overflow-hidden"
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
@@ -75,7 +80,7 @@ const Projects = () => {
                   </Badge>
                 </div>
                 <div className="absolute bottom-4 left-4">
-                  <Badge className="bg-blue-600/20 text-blue-300 border-blue-500/30">
+                  <Badge className="bg-red-600/20 text-red-300 border-red-500/30">
                     {project.category}
                   </Badge>
                 </div>
@@ -84,7 +89,7 @@ const Projects = () => {
               <CardContent className="p-6">
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-200 mb-2 group-hover:text-blue-300 transition-colors">
+                    <h3 className="text-xl font-semibold text-gray-200 mb-2 group-hover:text-red-300 transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-gray-400 text-sm leading-relaxed">
@@ -98,7 +103,7 @@ const Projects = () => {
                       <Badge 
                         key={index}
                         variant="outline"
-                        className="text-xs border-gray-600 text-gray-300 hover:border-blue-400/50 hover:text-blue-300 transition-colors"
+                        className="text-xs border-gray-600 text-gray-300 hover:border-red-400/50 hover:text-red-300 transition-colors"
                       >
                         {tech}
                       </Badge>
@@ -109,7 +114,8 @@ const Projects = () => {
                   <div className="flex gap-3 pt-4">
                     <Button 
                       size="sm"
-                      className="flex-1 bg-blue-600/20 text-blue-300 border border-blue-500/30 hover:bg-blue-600/30 hover:border-blue-400/50 transition-all duration-300"
+                      className="flex-1 bg-red-600/20 text-red-300 border border-red-500/30 hover:bg-red-600/30 hover:border-red-400/50 transition-all duration-300"
+                      onClick={() => window.open(project.project_link, '_blank')}
                     >
                       <Eye className="h-4 w-4 mr-2" />
                       Ver Projeto
@@ -117,7 +123,8 @@ const Projects = () => {
                     <Button 
                       size="sm"
                       variant="outline"
-                      className="border-gray-600 text-gray-300 hover:border-blue-400/50 hover:text-blue-300 transition-all duration-300"
+                      className="border-gray-600 text-gray-300 hover:border-red-400/50 hover:text-red-300 transition-all duration-300"
+                      onClick={() => window.open(project.github, '_blank')}
                     >
                       <Github className="h-4 w-4 mr-2" />
                       Código
@@ -131,9 +138,9 @@ const Projects = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <Card className="bg-gradient-to-r from-blue-900/30 to-blue-800/30 border-blue-500/20 backdrop-blur-sm">
+          <Card className="bg-gradient-to-r from-red-900/30 to-orange-800/30 border-red-500/20 backdrop-blur-sm">
             <CardContent className="p-8">
-              <Rocket className="h-12 w-12 text-blue-400 mx-auto mb-4" />
+              <Rocket className="h-12 w-12 text-red-400 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-200 mb-4">
                 Pronto para a próxima missão?
               </h3>
@@ -143,7 +150,7 @@ const Projects = () => {
               </p>
               <Button 
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-blue-500/40 hover:scale-105"
+                className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg shadow-red-500/25 transition-all duration-300 hover:shadow-red-500/40 hover:scale-105"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <ExternalLink className="mr-2 h-5 w-5" />

@@ -4,7 +4,6 @@ import { Heart, Code, Zap } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
   return (
     <footer className="relative py-12 px-6 border-t border-blue-500/20">
       <div className="max-w-6xl mx-auto">
@@ -12,7 +11,7 @@ const Footer = () => {
           {/* Logo/Brand */}
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-              Desenvolvedor Jedi
+              Desenvolvedor Sith
             </h3>
             <p className="text-gray-400 text-sm mt-2">
               Construindo o futuro, um componente por vez
@@ -21,11 +20,11 @@ const Footer = () => {
 
           {/* Tech Stack */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {['React', 'JavaScript', 'CSS3', 'HTML5', 'Firebase', 'MySQL'].map((tech) => (
+            {['React', 'JavaScript', 'CSS3', 'Sass', 'HTML5', 'C', 'Node.js', 'Firebase', 'MySQL'].map((tech) => (
               <Badge 
                 key={tech}
                 variant="outline"
-                className="border-gray-600 text-gray-400 hover:border-blue-400/50 hover:text-blue-300 transition-colors cursor-pointer"
+                className="border-gray-600 text-gray-400 hover:border-red-400/50 hover:text-red-300 transition-colors cursor-pointer"
               >
                 {tech}
               </Badge>
@@ -34,7 +33,7 @@ const Footer = () => {
 
           {/* Quote */}
           <div className="max-w-2xl mx-auto mb-8">
-            <blockquote className="text-blue-300 italic text-lg">
+            <blockquote className="text-red-300 italic text-lg">
               "Que a Força do código esteja com você"
             </blockquote>
           </div>

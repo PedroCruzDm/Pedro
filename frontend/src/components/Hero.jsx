@@ -5,10 +5,11 @@ import { developerInfo } from '../data/mock';
 
 const Hero = () => {
   const [textIndex, setTextIndex] = useState(0);
-  const texts = [
+  const texts = [ //frases rotativas
     "O poder do código flui através de mim",
     "Do lado sombrio, construo o futuro",
-    "Mestre das artes do desenvolvimento"
+    "Aprendiz das artes do desenvolvimento",
+    "Firebase, MySQL e além"
   ];
 
   useEffect(() => {
@@ -33,10 +34,9 @@ const Hero = () => {
         }}
       />
       
-      {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-red-950/60 to-black/90" />
+        {/* Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-red-950/60 to-black/45" />
       
-      {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl">
         {/* Main Title with Dark Side Glow */}
         <div className="mb-8">

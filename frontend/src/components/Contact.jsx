@@ -11,7 +11,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    subject: '[Tentativa de contato com o Developer]',
     message: ''
   });
 
@@ -25,7 +25,6 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Mensagem enviada:', formData);
-    // Mock submission - in real app would send to backend
     alert('Mensagem enviada com sucesso! Em breve retornarei o contato.');
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
@@ -35,38 +34,44 @@ const Contact = () => {
       icon: Github,
       label: 'GitHub',
       url: contactInfo.github,
-      color: 'hover:text-gray-300'
+      color: 'hover:text-blue-300'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       url: contactInfo.linkedin,
-      color: 'hover:text-blue-400'
+      color: 'hover:text-purple-400'
     },
     {
       icon: Mail,
       label: 'Email',
       url: `mailto:${contactInfo.email}`,
-      color: 'hover:text-blue-300'
+      color: 'hover:text-red-300'
     }
   ];
 
   return (
     <section id="contact" className="relative py-20 px-6">
       <div className="max-w-6xl mx-auto">
+
+      {/* Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-red-950/60 to-black/90" />
+
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-600 mb-4">
             Iniciar Transmissão
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+
+          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
             Pronto para discutir seu próximo projeto? Vamos nos conectar e construir algo incrível juntos!
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
+
           {/* Contact Form */}
-          <Card className="bg-slate-800/50 border-blue-500/20 backdrop-blur-sm">
+          <Card className="bg-slate-800/50 border-red-500/20 backdrop-blur-sm">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-gray-200 mb-6">
                 Enviar Mensagem
@@ -83,7 +88,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Seu nome"
-                      className="bg-slate-700/50 border-gray-600 text-gray-200 focus:border-blue-400 focus:ring-blue-400/20"
+                      className="bg-slate-700/50 border-gray-600 text-gray-200 focus:border-red-400 focus:ring-red-400/20"
                       required
                     />
                   </div>
@@ -97,7 +102,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="seu.email@exemplo.com"
-                      className="bg-slate-700/50 border-gray-600 text-gray-200 focus:border-blue-400 focus:ring-blue-400/20"
+                      className="bg-slate-700/50 border-gray-600 text-gray-200 focus:border-red-400 focus:ring-red-400/20"
                       required
                     />
                   </div>
@@ -112,7 +117,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     placeholder="Assunto da mensagem"
-                    className="bg-slate-700/50 border-gray-600 text-gray-200 focus:border-blue-400 focus:ring-blue-400/20"
+                    className="bg-slate-700/50 border-gray-600 text-gray-200 focus:border-red-400 focus:ring-red-400/20"
                     required
                   />
                 </div>
@@ -127,14 +132,14 @@ const Contact = () => {
                     onChange={handleInputChange}
                     placeholder="Conte-me sobre seu projeto ou ideia..."
                     rows={6}
-                    className="bg-slate-700/50 border-gray-600 text-gray-200 focus:border-blue-400 focus:ring-blue-400/20 resize-none"
+                    className="bg-slate-700/50 border-gray-600 text-gray-200 focus:border-red-400 focus:ring-red-400/20 resize-none"
                     required
                   />
                 </div>
 
                 <Button 
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg text-lg font-semibold shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-blue-500/40 hover:scale-[1.02]"
+                  className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg text-lg font-semibold shadow-lg shadow-red-500/25 transition-all duration-300 hover:shadow-red-500/40 hover:scale-[1.02]"
                 >
                   <Send className="mr-2 h-5 w-5" />
                   Enviar Mensagem
@@ -145,8 +150,9 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="space-y-8">
+
             {/* Contact Details */}
-            <Card className="bg-slate-800/50 border-blue-500/20 backdrop-blur-sm">
+            <Card className="bg-slate-800/50 border-red-500/20 backdrop-blur-sm">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-gray-200 mb-6">
                   Informações de Contato
@@ -154,7 +160,7 @@ const Contact = () => {
                 
                 <div className="space-y-6">
                   <div className="flex items-center">
-                    <Mail className="h-6 w-6 text-blue-400 mr-4" />
+                    <Mail className="h-6 w-6 text-red-400 mr-4" />
                     <div>
                       <p className="text-gray-300 font-medium">Email</p>
                       <p className="text-gray-400 text-sm">{contactInfo.email}</p>
@@ -162,15 +168,15 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-center">
-                    <MapPin className="h-6 w-6 text-blue-400 mr-4" />
+                    <MapPin className="h-6 w-6 text-red-400 mr-4" />
                     <div>
                       <p className="text-gray-300 font-medium">Localização</p>
-                      <p className="text-gray-400 text-sm">Uma galáxia muito, muito distante...</p>
+                      <p className="text-gray-400 text-sm">São Paulo, Brasil</p>
                     </div>
                   </div>
 
                   <div className="flex items-center">
-                    <Clock className="h-6 w-6 text-blue-400 mr-4" />
+                    <Clock className="h-6 w-6 text-red-400 mr-4" />
                     <div>
                       <p className="text-gray-300 font-medium">Disponibilidade</p>
                       <p className="text-gray-400 text-sm">24/7 no tempo galáctico</p>
