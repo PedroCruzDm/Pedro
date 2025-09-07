@@ -18,13 +18,16 @@ const StarBackground = ({ speed = 0.5, density = 200 }) => {
     const createStars = () => {
       starsRef.current = [];
       for (let i = 0; i < density; i++) {
+        const starType = Math.random();
         starsRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 0.5,
+          size: Math.random() * 2.5 + 0.5,
           speed: Math.random() * speed + 0.1,
           opacity: Math.random() * 0.8 + 0.2,
-          twinkle: Math.random() * 0.02 + 0.01
+          twinkle: Math.random() * 0.02 + 0.01,
+          // Dark side colors: red, orange, dark red
+          color: starType < 0.6 ? '#ef4444' : starType < 0.8 ? '#f97316' : '#dc2626'
         });
       }
     };
@@ -48,13 +51,22 @@ const StarBackground = ({ speed = 0.5, density = 200 }) => {
           star.twinkle = -star.twinkle;
         }
         
-        // Draw star
+        // Draw star with dark side colors
         ctx.save();
         ctx.globalAlpha = star.opacity;
-        ctx.fillStyle = '#60a5fa';
+        ctx.fillStyle = star.color;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fill();
+        
+        // Add glow effect for larger stars
+        if (star.size > 1.5) {
+          ctx.globalAlpha = star.opacity * 0.3;
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.size * 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        
         ctx.restore();
       });
       
@@ -84,7 +96,9 @@ const StarBackground = ({ speed = 0.5, density = 200 }) => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)' }}
+      style={{ 
+        background: 'linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 25%, #2a0505 50%, #1a0a0a 75%, #0a0a0a 100%)' 
+      }}
     />
   );
 };
