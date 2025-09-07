@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import StarBackground from './components/StarBackground';
 import Hero from './components/Hero';
 import About from './components/About';
+import Technologies from './components/Technologies';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -17,6 +21,10 @@ function App() {
               <>
                 <Hero />
                 <About />
+                <Technologies />
+                <Projects />
+                <Contact />
+                <Footer />
               </>
             } />
           </Routes>
