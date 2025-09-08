@@ -7,10 +7,12 @@ import { projects } from '../data/mock';
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const categories = ['All', 'Frontend', 'Backend'];
 
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
+  // Categorias únicas automaticamente dos projetos
+  const categories = Array.from(new Set(['All', ...projects.map(p => p.category)]));
+
+  const filteredProjects = selectedCategory === 'All'
+    ? projects
     : projects.filter(project => project.category === selectedCategory);
 
   const getStatusColor = (status) => {
@@ -22,6 +24,7 @@ const Projects = () => {
       default: return 'bg-gray-600/20 text-gray-300 border-gray-500/30';
     }
   };
+  
 
   return (
     <section id="projects" className="relative py-20 px-6">
@@ -40,8 +43,8 @@ const Projects = () => {
           </p>
 
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {Array.from(new Set(['All', ...projects.map(p => p.category.charAt(0).toUpperCase() + p.category.slice(1))])).map((category) => (
               <Button
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
@@ -57,8 +60,6 @@ const Projects = () => {
             ))}
           </div>
         </div>
-
-        {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
 

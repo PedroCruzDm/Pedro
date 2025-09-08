@@ -30,7 +30,7 @@ const About = () => {
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <Skull className="h-6 w-6 text-red-400 mr-3" />
-                  <h3 className="text-xl font-semibold text-gray-200">Sobre o Sith</h3>
+                  <h3 className="text-xl font-semibold text-gray-200">Sobre o Sith (Dev)</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed">
                   {developerInfo.description}
@@ -67,7 +67,7 @@ const About = () => {
           {/* Timeline */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold text-gray-200 mb-6 text-center">
-              Linha do Tempo Sith
+              Linha do Tempo Sith (Dev)
             </h3>
             
             <div className="relative">

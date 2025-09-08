@@ -4,13 +4,13 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Badge } from './ui/badge';
-import { Mail, Github, Linkedin, Send, MapPin, Clock } from 'lucide-react';
+import { Mail, Github, Linkedin, Instagram, Send, MapPin, Clock, Youtube } from 'lucide-react';
 import { contactInfo } from '../data/mock';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    email: 'joaope14dro@gmail.com',
     subject: '[Tentativa de contato com o Developer]',
     message: ''
   });
@@ -34,18 +34,24 @@ const Contact = () => {
       icon: Github,
       label: 'GitHub',
       url: contactInfo.github,
-      color: 'hover:text-blue-300'
+      color: 'hover:text-white'
+    },
+    {
+      icon: Instagram,
+      label: 'Instagram',
+      url: `https://www.instagram.com/apenaspedro1/?hl=pt-br`,
+      color: 'hover:text-purple-400'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       url: contactInfo.linkedin,
-      color: 'hover:text-purple-400'
+      color: 'hover:text-blue-400'
     },
     {
-      icon: Mail,
-      label: 'Email',
-      url: `mailto:${contactInfo.email}`,
+      icon: Youtube,
+      label: 'YouTube',
+      url: `https://youtube.com/@apenasdev?si=U2S-rZfb5sddCj2P`,
       color: 'hover:text-red-300'
     }
   ];
@@ -179,7 +185,7 @@ const Contact = () => {
                     <Clock className="h-6 w-6 text-red-400 mr-4" />
                     <div>
                       <p className="text-gray-300 font-medium">Disponibilidade</p>
-                      <p className="text-gray-400 text-sm">24/7 no tempo galáctico</p>
+                      <p className="text-gray-400 text-sm">todos os dias</p>
                     </div>
                   </div>
                 </div>

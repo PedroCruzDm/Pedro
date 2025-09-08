@@ -2,8 +2,8 @@
 
 export const developerInfo = {
   name: "João Pedro da Cruz",
-  title: "Desenvolvedor do Lado Sombrio",
-  subtitle: "Dominando o poder do código com a força do lado sombrio",
+  title: "Desenvolvedor do Lado Sombrio (Back-End)",
+  subtitle: "Dominando o poder do código com a força do lado fullstack",
   description: "Front-End Developer em início de carreira, com experiência em HTML, CSS, JavaScript e React, focado em criar interfaces intuitivas e envolventes. Minha paixão por resolver problemas me impulsiona a buscar a melhor solução para cada desafio. Atualmente, estou expandindo minhas habilidades para o universo Fullstack, aprendendo sobre Back-End (MySQL e Firebase), para construir projetos cada vez mais completos. Sou movido pela curiosidade e pelo aprendizado contínuo, sempre buscando aprimorar a experiência do usuário (UX) e entregar resultados de qualidade.",
   quote: "O poder do código flui através de mim",
   location: "Do lado sombrio da Força...",
